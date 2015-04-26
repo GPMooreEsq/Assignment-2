@@ -9,15 +9,9 @@
 # 3. set the value of inverse of the matrix
 # 4. get the value of inverse of the matrix
 
-## Write a short comment describing this function
-
 makeCacheMatrix <- function(x = matrix()) {
 
 }
-
-
-## Write a short comment describing this function
-
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 }
