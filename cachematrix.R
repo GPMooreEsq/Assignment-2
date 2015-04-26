@@ -20,7 +20,6 @@ makeCacheMatrix <- function(x = matrix()) {
   setinverse <- function(inverse) inv <<- inverse
   getinverse <- function() inv
   list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
-
 }
 
 # The following function returns the inverse of the matrix. It first checks if
@@ -31,5 +30,17 @@ makeCacheMatrix <- function(x = matrix()) {
 # This function assumes that the matrix is always invertible.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+
+ inv <- x$getinverse()
+
+  if(!is.null(inv)) {
+    message("Getting Cached Data....")
+    return(inv)
+  }
+
+  data <- x$get()
+  inv <- solve(data)
+  x$setinverse(inv)
+  inv
+
 }
